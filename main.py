@@ -38,11 +38,9 @@ def main():
         cached_data = utils.load_cache(cache_file_path)
 
         if args.name in cached_data:
-            print('data in cache')
             response = cached_data[args.name]['response']
             timestamp = cached_data[args.name]['timestamp']
         else:
-            print('data not in cache')
             response = utils.swapi_get_request(character_name_url)
             response = response.json()
             now = datetime.datetime.now()
